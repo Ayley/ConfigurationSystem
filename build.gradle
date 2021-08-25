@@ -1,0 +1,14 @@
+plugins {
+    id 'java'
+}
+
+group 'me.kleidukos'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.spongepowered:configurate-yaml:4.0.0'
+}
