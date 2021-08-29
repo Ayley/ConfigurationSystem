@@ -8,7 +8,7 @@ public class ConfigurationComponent {
 
     private ConfigurationNode rootNode;
 
-    private HashMap<String, Object> values;
+    private HashMap<String[], Object> values;
 
     private String[] basePath;
 
@@ -61,15 +61,15 @@ public class ConfigurationComponent {
         }
     }
 
-    public void setValue(String name, Object value){
-        values.put(name, value);
+    public void setValue(Object value, String... path){
+        values.put(path, value);
     }
 
     public ConfigurationNode getNode() {
         return rootNode;
     }
 
-    protected HashMap<String, Object> getValues() {
+    protected HashMap<String[], Object> getValues() {
         return values;
     }
 

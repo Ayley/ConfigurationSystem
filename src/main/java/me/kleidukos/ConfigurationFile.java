@@ -31,19 +31,12 @@ public class ConfigurationFile {
     public void addDefault(ConfigurationComponent component) throws ConfigurateException {
         ConfigurationNode defaultNode = node.node(component.getBasePath());
 
-        if(!defaultNode.empty()){
-            return;
-        }
-
-        for (Map.Entry<String, Object> entry : component.getValues().entrySet()){
-            if(!entry.getKey().contains(".")){
-                defaultNode.node(entry.getKey()).set(entry.getValue());
-            }else {
-                String[] paths = entry.getKey().split("\\.");
-                defaultNode.node(paths).set(entry.getValue());
+        for (Map.Entry<String[], Object> entry : component.getValues().entrySet()){
+            ConfigurationNode cNode = defaultNode.node(entry.getKey());
+            if(cNode.empty()){
+                cNode.set(entry.getValue());
             }
         }
-
         loader.save(node);
     }
 }

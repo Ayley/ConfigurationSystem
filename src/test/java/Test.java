@@ -20,8 +20,10 @@ public class Test {
         component.setValue("language", "de");
         component1.setValue("language", "en");
 
-        component.setValue("sa.bne.gr", 2);
-        component1.setValue("sa.bne.gr", 103);
+        component.setValue(2,"sa","bne","gr");
+        component.setValue("ge4", "sa","bne","gl");
+        component1.setValue( 103, "sa","bne","gr");
+        component1.setValue("sa.bne.gl", "gf3");
 
         try {
             file.addDefault(component);
